@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic CSS variables */
+:root {
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  
+  --primary: #0ea5e9;
+  --primary-foreground: #ffffff;
+  --primary-glow: #38bdf8;
+  
+  --secondary: #f1f5f9;
+  --secondary-foreground: #334155;
+  
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  
+  --accent: #f1f5f9;
+  --accent-foreground: #334155;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0ea5e9;
+  
+  --radius: 0.5rem;
+  
+  /* Crowd density colors */
+  --density-low: #0ea5e9;
+  --density-medium: #eab308;
+  --density-high: #f97316;
+  --density-extreme: #ef4444;
+  
+  --map-overlay: #ffffff;
+  --map-shadow: #000000;
+}
+
+/* Dark mode */
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  
+  --primary: #0ea5e9;
+  --primary-foreground: #ffffff;
+  --primary-glow: #38bdf8;
+  
+  --secondary: #334155;
+  --secondary-foreground: #f8fafc;
+  
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  
+  --accent: #334155;
+  --accent-foreground: #f8fafc;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  --border: #334155;
+  --input: #334155;
+  --ring: #0ea5e9;
+  
+  /* Dark mode crowd density colors */
+  --density-low: #0ea5e9;
+  --density-medium: #eab308;
+  --density-high: #f97316;
+  --density-extreme: #ef4444;
+}
+
+/* Crowd density background classes */
+.bg-density-low {
+  background-color: var(--density-low);
+}
+
+.bg-density-medium {
+  background-color: var(--density-medium);
+}
+
+.bg-density-high {
+  background-color: var(--density-high);
+}
+
+.bg-density-extreme {
+  background-color: var(--density-extreme);
+}
+
+/* Floating button variant */
+.variant-floating {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.variant-floating:hover {
+  background: var(--accent);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+.glow-primary:hover {
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
+}
+
+/* Pulse animation for extreme density */
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.9);
+  }
+}

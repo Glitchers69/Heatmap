@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .status {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>API Test Page</h1>
+  <button id="fetchBtn">Fetch Crowd Data</button>
+  <div class="status" id="status">Ready</div>
+  <h2>Response:</h2>
+  <pre id="response">Click the button to fetch data</pre>
+
+  <script>
+    document.getElementById('fetchBtn').addEventListener('click', async () => {
+      const statusEl = document.getElementById('status');
+      const responseEl = document.getElementById('response');
+      
+      statusEl.textContent = 'Fetching data...';
+      
+      try {
+        const response = await fetch('/api/crowd-data/');
+        const responseText = await response.text();
+        
+        statusEl.textContent = `Status: ${response.status} ${response.statusText}`;
+        
+        try {
+          // Try to parse as JSON for pretty display
+          const data = JSON.parse(responseText);
+          responseEl.textContent = JSON.stringify(data, null, 2);
+        } catch (e) {
+          // If not valid JSON, show as text
+          responseEl.textContent = responseText;
+        }
+      } catch (error) {
+        statusEl.textContent = 'Error fetching data';
+        responseEl.textContent = error.toString();
+      }
+    });
+  </script>
+</body>
+</html>
